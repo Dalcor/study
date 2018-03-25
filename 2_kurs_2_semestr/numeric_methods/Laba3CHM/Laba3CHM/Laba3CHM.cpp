@@ -7,14 +7,14 @@
 using namespace std;
 
 int main() {
-  double a[13]; //поддиагональ
-  double b[12]; //диагональ
-  double c[12]; //наддиагональ
-  double d[12]; //правая часть
-  double T[12]; //решение
+  double a[13]; //piddiagonal
+  double b[12]; //diagonal
+  double c[12]; //naddiagonal
+  double d[12]; //prava chastyna
+  double T[12]; //rishennnia
   double masResult[12];
   double masC[12];
-  //*********************_Заполнение массивов_*********************************
+  //*********************_Zapovnennia masyviv_*********************************
   int i;
   double c_c = 1.0;
  a[2] = 0.4;
@@ -58,25 +58,25 @@ int main() {
      masResult[10] = -1.3;
 //*****************************************************************
  // cout << endl;
-  //перезапис діагоналі і правої частини
+  //perezapys diagonali i pravoi chactyny
   for(int j = 2; j <= 10; j++){
   b[j] = b[j] - a[j]*c[j-1]/b[j-1];
 //  cout  << "b["<< j - 1 << "] = " << b[j - 1]  << "\t"  << "\t";
   d[j] = d[j] - a[j] * d[j-1] / b[j - 1];
  // cout  << "d["<< j - 1 << "] = " << d[j - 1] << endl;
   }
-  cout << "FOR c = 1.0\n";
+ cout << "FOR c = 1.0\n";
  cout << "----------------------------\n" ;
  cout << "|       T[N]         |  X  |\n";
  cout << "----------------------------\n";
  //  cout  << "b["<< "10" << "] = " << b[10]  << "\t";
  //  cout  << "d["<< "10" << "] = " << d[10]  << "\n";
-      //визначення значення х(10)
+      //vyznachennia х(10)
   T[10] = d[10]/b[10];
   cout.fixed;
   
   cout  << "|" << setprecision(18) << setw(20) <<  T[10] << "|" << setprecision(2) << setw(5) << masResult[10] << "|"<< endl;
-     //визначення всіх інших значень х
+     //vyznachennia inshyh znachen' х
   for(int k = 9; k >= 1; k--) {
    T[k] = (d[k] - c[k] * T[k+1])/b[k];
    cout  << "|" << setprecision(18) << setw(20) << T[k] << "|" << setprecision(2) << setw(5) << masResult[k] << "|" <<  endl;
@@ -90,24 +90,22 @@ int main() {
  b[0] = -5.5;
  c[1] = 0.5;
  masC[1] = -5.5;
-     for(int j = 1; j <= 10; j++) {
+  for(int j = 1; j <= 10; j++) {
      masC[j+1] = masC[j] - 0.1;
      }
 
   for(i = 1; i < 10; i++) {
      a[i + 2] = a[i + 1] + 0.1;
- //   cout  << "a["<< i + 1 << "] = " << a[i + 1] << "\n";
+  }
 
-  }
   cout << "\n";
-    for(i = 1; i <= 10; i++) {
+
+  for(i = 1; i <= 10; i++) {
      b[i] = masC[i] * c_c;
-  //   cout  << "b["<< i << "] = " << b[i] << "\n";
   }
- //   cout << "\n";
-     for(i = 1; i < 10; i++) {
+
+  for(i = 1; i < 10; i++) {
      c[i+1] = (c[i] + 0.2);
-    // cout  << "c["<< i << "] = " << c[i] << endl;
   }
      d[1] = -0.030;
      d[2] = -0.300;
@@ -123,25 +121,19 @@ int main() {
 
 //*****************************************************************
  // cout << endl;
-  //перезапис діагоналі і правої частини
+  
   for(int j = 2; j <= 10; j++){
   b[j] = b[j] - a[j]*c[j-1]/b[j-1];
-//  cout  << "b["<< j - 1 << "] = " << b[j - 1]  << "\t"  << "\t";
   d[j] = d[j] - a[j] * d[j-1] / b[j - 1];
- // cout  << "d["<< j - 1 << "] = " << d[j - 1] << endl;
   }
  cout << "FOR c = 0.1\n";
  cout << "----------------------------\n" ;
  cout << "|       T[N]         |  X  |\n";
  cout << "----------------------------\n";
- //  cout  << "b["<< "10" << "] = " << b[10]  << "\t";
- //  cout  << "d["<< "10" << "] = " << d[10]  << "\n";
-      //визначення значення х(10)
+
   T[10] = d[10]/b[10];
   cout.fixed;
-  
   cout  << "|" << setprecision(18) << setw(20) <<  T[10] << "|"  << setprecision(2) << setw(5)<< masResult[10] << "|"<< endl;
-     //визначення всіх інших значень х
   for(int k = 9; k >= 1; k--) {
    T[k] = (d[k] - c[k] * T[k+1])/b[k];
    cout  << "|" << setprecision(18) << setw(20) << T[k] << "|" << setprecision(2) << setw(5) << masResult[k] << "|" <<  endl;
@@ -164,18 +156,16 @@ int main() {
 
   for(i = 1; i < 10; i++) {
      a[i + 2] = a[i + 1] + 0.1;
-  //  cout  << "a["<< i + 1 << "] = " << a[i + 1] << "\n";
+  }
 
-  }
   cout << "\n";
-    for(i = 1; i <= 10; i++) {
+
+  for(i = 1; i <= 10; i++) {
      b[i] = masC[i] * c_c;
-    // cout  << "b["<< i << "] = " << b[i] << "\n";
   }
- //   cout << "\n";
-     for(i = 1; i < 10; i++) {
+
+  for(i = 1; i < 10; i++) {
      c[i+1] = (c[i] + 0.2);
-    // cout  << "c["<< i << "] = " << c[i] << endl;
   }
      d[1] = -0.24780;
      d[2] = -0.57720;
@@ -190,26 +180,21 @@ int main() {
 
 
 //*****************************************************************
- // cout << endl;
-  //перезапис діагоналі і правої частини
+
   for(int j = 2; j <= 10; j++){
   b[j] = b[j] - a[j]*c[j-1]/b[j-1];
-//  cout  << "b["<< j - 1 << "] = " << b[j - 1]  << "\t"  << "\t";
+
   d[j] = d[j] - a[j] * d[j-1] / b[j - 1];
- // cout  << "d["<< j - 1 << "] = " << d[j - 1] << endl;
+
   }
  cout << "FOR c = 0.001\n";
  cout << "----------------------------\n" ;
  cout << "|       T[N]         |  X  |\n";
  cout << "----------------------------\n";
- //  cout  << "b["<< "10" << "] = " << b[10]  << "\t";
- //  cout  << "d["<< "10" << "] = " << d[10]  << "\n";
-      //визначення значення х(10)
+
   T[10] = d[10]/b[10];
   cout.fixed;
-  
   cout  << "|" << setprecision(18) << setw(20) <<  T[10] << "|"  << setprecision(2) << setw(5)<< masResult[10] << "|"<< endl;
-     //визначення всіх інших значень х
   for(int k = 9; k >= 1; k--) {
    T[k] = (d[k] - c[k] * T[k+1])/b[k];
    cout  << "|" << setprecision(18) << setw(20) << T[k] << "|" << setprecision(2) <<  setw(5) << masResult[k] << "|" <<  endl;
